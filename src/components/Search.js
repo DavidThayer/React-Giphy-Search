@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
 
-class Search extends Component {
+const Search = (props) => {
 
-  render() {
     return (
       <div className="container mb-4">
         <div className="row">
           <div className="col-md-6 offset-md-3">
             <div className="form-group">
-              <form onSubmit={this.props.onSubmit}>
+              <form onSubmit={props.onSubmit}>
                 <input
                   type="text"
                   name="search"
-                  value={this.props.query}
+                  value={props.query}
                   className="form-control form-control-lg mb-3"
-                  onInput={this.props.onInputChange} />
+                  autoFocus={true}
+                  onInput={props.onInputChange} />
                 <input
                   type="submit"
                   value="Search"
@@ -26,6 +26,6 @@ class Search extends Component {
       </div>
     )
   }
-}
+
 
 export default Search;

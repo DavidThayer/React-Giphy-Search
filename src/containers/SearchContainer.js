@@ -12,7 +12,6 @@ class SearchContainer extends Component {
   }
 
   handleInput = (event) => {
-    // console.log(event.target.value);
     let query = event.target.value;
     this.setState({
       query,
@@ -22,12 +21,10 @@ class SearchContainer extends Component {
   }
 
   handleSubmit = (event) => {
-    // console.log(this.state.query);
     event.preventDefault();
     let query = this.state.query
     GiphyModel.search(query)
       .then(response => {
-        console.log(response.data)
         this.setState({
           searching: true,
           results: response.data.data
@@ -37,7 +34,9 @@ class SearchContainer extends Component {
   }
 
   render() {
-    let results = this.state.searching ? <Results data={this.state.results} /> : null;
+    let results = this.state.searching
+      ? <Results data={this.state.results} />
+      : null;
     return (
       <div>
         <div>
